@@ -5,6 +5,7 @@ using GarageSmille.Domain.Interface.Repositories;
 using System.Linq;
 using System;
 using GarageSmille.Domain.Interface.Infrastructure;
+using System.Threading.Tasks;
 
 namespace GarageSmille.Domain.Service
 {
@@ -23,7 +24,8 @@ namespace GarageSmille.Domain.Service
 
         public Usuario LogaUsuario(string email, string senha)
         {
-            return _repositoryUsuario.LogarUsuario(email, senha);
+            
+            return _repositoryUsuario.LogarUsuario(email, senha); 
         }
 
         public List<PerfilUsuario> RecuperaTodosPerfisAtivos()

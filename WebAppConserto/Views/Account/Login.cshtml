@@ -1,0 +1,54 @@
+﻿@using GarageSmille.Domain.Entities
+@model GarageSmille_Ui.ViewModel.LogInViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Entrar</title>
+    <link href="~/Content/styleLogin.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="login">
+        <div id="triangle"></div>
+        <h1>
+            Garage Smille<br />
+            Log In
+        </h1>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div style="text-align:center; color:#808080">
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.PerfilUsuarioId, new SelectList(Model.PerfilUsuario, "Value", "Text"), "--Selecione seu Perfil--", new { @class = "form-control" })
+                </div>
+            </div>
+            <input type="email" name="Email" placeholder="Email" />
+                <input type="password" name="Password" placeholder="Senha" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Entrar" class="btn btn-default" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <div class="checkbox">
+                            @Html.CheckBox("RememberMe")
+                            @Html.Label("RememberMe")
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    @Html.ActionLink("Registrar-se como novo usuário", "Register")
+                </p>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+    <title>Snap.js</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+   
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @RenderPage("~/Views/Shared/_MenuRetratil.cshtml")
+
+    @RenderBody()
+    
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+ 
+    
+@section Scripts {
+   
+
+    <script type="text/javascript">
+        
+            var snapper = new Snap({
+                element: document.getElementById('content')
+            });
+
+    </script>
+    }
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+</body>
+</html>

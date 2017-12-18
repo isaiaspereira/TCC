@@ -43,8 +43,6 @@ namespace GarageSmille.Infrastructure.Context
             modelBuilder.Configurations.Add(new PerfilUsuarioMap());
             modelBuilder.Configurations.Add(new ModuloAcessoMap());
 
-            base.OnModelCreating(modelBuilder);
-
         }
         public override int SaveChanges()
         {

@@ -3,6 +3,7 @@ using GarageSmille.Domain.Interface.Repositories;
 using ProjetoDDD.Infrastructure.Data.Security;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,11 @@ namespace GarageSmille.Infrastructure.Repositories
     {
         public void CadastraUsuario(Usuario usuario)
         {
-            usuario.Senha = Crypto.EncryptStringAES(usuario.Senha,usuario.SenhaKey);
+            usuario.Senha = Crypto.EncryptStringAES(usuario.Senha, usuario.SenhaKey);
             _garageContext.Usuarios.Add(usuario);
             _garageContext.SaveChanges();
         }
+
 
         public Usuario LogarUsuario(string email, string senha)
         {
